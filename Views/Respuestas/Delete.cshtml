@@ -1,0 +1,51 @@
+﻿@model ORT_PNT1_Proyecto_2022_2C_I_Foro.Models.Respuesta
+
+@{
+    ViewData["Title"] = "Borrar";
+}
+
+<h1>Borrar</h1>
+
+<h3>Seguro que quieres borrar esto?</h3>
+<div>
+    <h4>Respuesta</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Fecha)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Fecha)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Descripcion)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CantMeGustas)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CantMeGustas)
+        </dd>
+        <dt class = "col-sm-2">
+            Id Miembro
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Miembro.MiembroId)
+        </dd>
+        <dt class = "col-sm-2">
+            Id Pregunta
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Pregunta.PreguntaId)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="RespuestaId" />
+        <input type="submit" value="Borrar" class="btn btn-danger" /> |
+        <a asp-action="Details" asp-controller="Preguntas" asp-route-id="@Model.Pregunta.PreguntaId">Volver</a>
+    </form>
+</div>

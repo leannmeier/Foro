@@ -1,0 +1,43 @@
+﻿@model IEnumerable<ORT_PNT1_Proyecto_2022_2C_I_Foro.Models.Pregunta>
+
+@{
+    ViewData["Title"] = "Preguntas";
+}
+
+<div class="text-center main">
+
+<h1 class="accent-font-color">Stack Underflow</h1>
+<p>Preguntas de la comunidad, para la comunidad.</p>
+
+    @if (Context.Session.GetInt32("_MiembroId") != null){
+        <p>
+            <a asp-action="Create" class="btn btn-primary" style="font-weight:500;">Publicar Nueva Pregunta</a>
+        </p>
+    }else{
+        <p class="accent-font-color">Ingresá para preguntar!</p>
+    }
+@foreach(var item in Model){
+
+    <div class="tarjeta">
+        <div class="tarjeta-titulo">
+                <h3>@Html.DisplayFor(modelItem => item.Titulo)</h3>
+            @*<p class="tarjeta-categoria"><b>Categoria</b></p>*@
+        </div>
+        <div class="tarjeta-autor">
+            <p class="autor">Por: @Html.DisplayFor(m => item.Miembro.NombreCompleto)</p>
+            <p class="fecha">@Html.DisplayFor(m => item.Fecha)</p>
+        </div>
+        <p class="tarjeta-contenido">@Html.DisplayFor(m => item.Descripcion)</p>
+        <div class="action-links">
+            <a asp-action="Details" asp-route-id="@item.PreguntaId">Detalles</a> 
+            @if(Context.Session.GetString("_Rol") == "administrador" || Context.Session.GetInt32("_MiembroId") == item.MiembroId ){
+                <span>
+                    | 
+                <a asp-action="Delete" asp-route-id="@item.PreguntaId">Borrar</a>
+                </span>
+            }
+        </div>
+    </div>
+}
+
+</div>

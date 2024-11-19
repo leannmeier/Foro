@@ -1,0 +1,59 @@
+﻿@model IEnumerable<ORT_PNT1_Proyecto_2022_2C_I_Foro.Models.Miembro>
+
+@{
+    ViewData["Title"] = "Miembros";
+}
+
+<h1>Miembros</h1>
+
+<p>
+    <a asp-action="Create">Agregar Miembro</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Apellido)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Rol)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaAlta)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Apellido)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rol)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaAlta)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.MiembroId">Editar</a> |
+                <a asp-action="Details" asp-route-id="@item.MiembroId">Detalles</a> |
+                <a asp-action="Delete" asp-route-id="@item.MiembroId">Borrar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

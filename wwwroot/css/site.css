@@ -1,0 +1,259 @@
+:root {
+    --primary-bg-color: #282828;
+    --secondary-bg-color: #5b5b5b;
+    --accent-font-color: #2fe259;
+    --accent-font-color-hover: #1fc147;
+    --link-color: #54b4ff;
+    --font-color: white;
+    --error-font-color: #f96fff;
+    --button-color: #20aa40;
+    --button-color-hover: #1c8e37;
+}
+
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+  color: var(--font-color);
+  background-color: var(--primary-bg-color);
+}
+
+table{
+    color: var(--font-color) !important;
+}
+
+.main {
+    min-height: 80vh;
+}
+
+a{
+    color: var(--accent-font-color);
+}
+
+a:hover{
+    color: var(--accent-font-color-hover);
+}
+
+.tarjeta{
+    margin: 40px 20px;
+    text-align: left;
+    background-color: var(--secondary-bg-color);
+    padding: 20px;
+    border-radius:15px;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.2)
+}
+
+.tarjeta div{
+    display: flex;
+    gap: 20px;
+    align-items: flex-end;
+    margin-bottom: 10px;
+}
+
+.tarjeta .tarjeta-autor {
+    align-items: center;
+}
+
+.tarjeta h1,h2,h3,h4,h5,h6,p{
+    margin: 0;
+}
+
+.tarjeta .fecha{
+    font-size: 12px;
+}
+
+.tarjeta-categoria{
+    color: var(--accent-font-color)
+}
+
+#custom-nabvar { 
+    background-color: var(--primary-bg-color) !important;
+}
+
+.navbar-brand {
+    color: var(--accent-font-color) !important;
+    font-size: 1.5em;
+    font-weight: 600;
+    text-shadow: 0 0 3px rgba(57, 255, 20, 0.5), 0 0 6px rgba(57, 255, 20, 0.4), 0 0 12px rgba(57, 255, 20, 0.3);
+}
+
+.accent-font-color {
+    color: var(--accent-font-color);
+}
+
+.nav-link{
+    font-weight: 500;
+}
+
+.nav-link:hover {
+    color: var(--accent-font-color) !important;
+}
+
+.login-info{
+    font-weight: 400;
+    display: block;
+    padding: .5rem .5rem;
+}
+
+.avatar{
+    border-radius: 50%;
+    display: block;
+    width: 150px;
+    aspect-ratio: 1/1;
+    border: 2px solid var(--accent-font-color);
+}
+
+.usuario{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.usuarios-container{
+    margin: 50px 0px 100px;
+    display: flex;
+    justify-content: space-around;
+}
+
+#contenedor {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0px;
+    padding: 25px;
+    width: 100%;
+    height: 100%;
+}
+
+#central {
+    max-width: 320px;
+    width: 100%;
+}
+
+#central-register{
+    width: 500px;
+}
+
+.titulo {
+    font-size: 250%;
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+#login {
+    width: 100%;
+    padding: 50px 30px;
+    background-color: var(--secondary-bg-color);
+    box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.15);
+    border-radius: 15px;
+    /*
+        box-sizing: border-box;
+    */
+}
+
+    #login input {
+        font-family: 'Overpass', sans-serif;
+        font-size: 100%;
+        color: var(--primary-bg-color);
+        display: block;
+        width: 100%;
+        height: 40px;
+        margin-bottom: 10px;
+        padding: 5px 5px 5px 10px;
+        box-sizing: border-box;
+        border: none;
+        border-radius: 3px 3px 3px 3px;
+    }
+
+        #login input::placeholder {
+            font-family: 'Overpass', sans-serif;
+            color: var(--secondary-bg-color);
+        }
+
+#login [type="submit"] {
+    font-family: 'Overpass', sans-serif;
+    font-size: 110%;
+    color: white;
+    width: 100%;
+    height: 40px;
+    border: none;
+    border-radius: 3px 3px 3px 3px;
+    background-color: var(--button-color);
+    margin-top: 10px;
+    font-weight:bold;
+}
+
+#login [type="submit"]:hover {
+    background-color: var(--button-color-hover);
+    transition: 0.5s;
+}
+
+.pie-form {
+    font-size: 90%;
+    text-align: center;
+    margin-top: 15px;
+}
+
+    .pie-form a {
+        display: block;
+        text-decoration: none;
+        color: var(--font-color);
+        margin-bottom: 3px;
+    }
+
+        .pie-form a:hover {
+            color: var(--accent-font-color);
+        }
+
+.inferior {
+    margin-top: 10px;
+    font-size: 90%;
+    text-align: center;
+}
+
+    .inferior a {
+        display: block;
+        text-decoration: none;
+        color: var(--font-color);
+        margin-bottom: 3px;
+    }
+
+        .inferior a:hover {
+            color: var(--accent-font-color-hover);
+        }
+
+.error-message {
+    font-weight: bold;
+    color: var(--error-font-color);
+    text-align: center;
+    margin: 10px 0px;
+}
+
+.btn {
+    margin-top: 10px;
+    background-color: var(--button-color);
+    border: none;
+}
+
+.btn:hover{
+    background-color: var(--button-color-hover);
+}
+
+.action-links{
+    margin-top: 10px;
+    gap: 5px !important;
+}

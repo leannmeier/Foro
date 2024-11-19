@@ -1,0 +1,76 @@
+﻿@model ORT_PNT1_Proyecto_2022_2C_I_Foro.Models.Pregunta
+
+@{
+    ViewData["Title"] = "Detalles";
+}
+
+<h1>Pregunta: @Html.DisplayFor(model => model.Titulo)</h1>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Fecha)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Fecha)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Titulo)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Titulo)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Descripcion)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CantMeGustas)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CantMeGustas)
+        </dd>
+        <dt class="col-sm-2">
+            Autor
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Miembro.NombreCompleto)
+        </dd>
+        <dt class="col-sm-2">
+            Respuestas
+        </dt>
+        <dd class="col-sm-10">
+            <table class="table">
+                <tr>
+                    <th>Respuesta</th>
+                    <th>Autor</th>
+                    <th>Acciones</th>
+                </tr>
+                @foreach(var item in Model.Respuestas){
+                    <tr>
+                        <td>@Html.DisplayFor(m => item.Descripcion)</td>
+                        <td>@Html.DisplayFor(m => item.Miembro.NombreCompleto)</td>
+                        <td>
+                        @if (Context.Session.GetString("_Rol") == "administrador" || Context.Session.GetInt32("_MiembroId") == item.MiembroId)
+                        { 
+                            <a asp-action="Delete" asp-controller="Respuestas" asp-route-id="@item.RespuestaId">Borrar</a>
+                        }
+                            </td>
+                    </tr>
+                }
+            </table>
+        </dd>
+    </dl>
+</div>
+<div>
+    @if (Context.Session.GetInt32("_MiembroId") != null){
+        <span>
+        <a asp-action="Create" asp-route-preguntaId=@Model.PreguntaId asp-route-titulo=@Model.Titulo asp-controller="Respuestas">Agregar Respuesta</a> |
+        </span>
+    }
+    
+    <a asp-action="Index">Volver</a>
+</div>
